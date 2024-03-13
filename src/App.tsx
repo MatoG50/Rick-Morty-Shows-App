@@ -1,7 +1,11 @@
+import ShowsCard from './components/ShowsCard';
+
 function App() {
   return (
     <>
-      <p>Hello</p>
+      <div className='container'>
+        <ShowsCard />
+      </div>
     </>
   );
 }

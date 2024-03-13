@@ -30,10 +30,12 @@ const ShowsCard = () => {
           borderRadius='lg'
         >
           <Image src={res.image} alt='img' className='image' />
-          <CardBody>
+          <CardBody backgroundColor='white'>
             <Stack>
-              <Heading size='md'>{res.name}</Heading>
-              <Text>{res.location.name}</Text>
+              <Heading color='black' size='md'>
+                {res.name}
+              </Heading>
+              <Text color='black'>{res.location.name}</Text>
             </Stack>
           </CardBody>
         </Card>

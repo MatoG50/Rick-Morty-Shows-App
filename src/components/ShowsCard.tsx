@@ -1,7 +1,7 @@
 import { Card, Image, CardBody, Stack, Heading, Text } from '@chakra-ui/react';
 import APIClient from '../services/api-client';
 import { useQuery } from 'react-query';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import { IoIosArrowDropleftCircle } from 'react-icons/io';
 

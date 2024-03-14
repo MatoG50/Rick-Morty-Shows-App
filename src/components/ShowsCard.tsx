@@ -1,7 +1,7 @@
 import { Card, Image, CardBody, Stack, Heading, Text } from '@chakra-ui/react';
 import APIClient from '../services/api-client';
 import { useQuery } from 'react-query';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import { IoIosArrowDropleftCircle } from 'react-icons/io';
 
@@ -18,6 +18,11 @@ const ShowsCard = () => {
   const [page, setPage] = useState(1);
 
   const apiClient = new APIClient(`/character/?page=${page}`);
+
+  // See current page number
+  // useEffect(() => {
+  //   console.log('Current page:', page);
+  // }, [page]);
 
   const { data } = useQuery({
     queryKey: ['characters', page],

@@ -24,11 +24,17 @@ const ShowsCard = () => {
   //   console.log('Current page:', page);
   // }, [page]);
 
-  const { data } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ['characters', page],
     queryFn: apiClient.getAll,
     cacheTime: 0,
+    onError: error => {
+      console.error('Error fetching data:', error);
+    },
   });
+
+  if (isLoading) return <div>isLoading...</div>;
+  if (isError) return <div>Error fetching data</div>;
 
   return (
     <>

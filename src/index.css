@@ -31,3 +31,11 @@
   font-size: 48px;
   cursor: pointer;
 }
+.header {
+  background-color: white;
+  text-align: center;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

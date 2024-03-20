@@ -38,6 +38,9 @@ const ShowsCard = () => {
 
   return (
     <>
+      <div className='header'>
+        <Heading color='rgb(27,26,26)'>Rick and Morty</Heading>
+      </div>
       <div className='container'>
         {data?.results.map((res: Show) => (
           <Card
@@ -70,7 +73,9 @@ const ShowsCard = () => {
         />
         <IoIosArrowDroprightCircle
           className='arrow'
-          onClick={() => setPage(page + 1)}
+          onClick={() => {
+            setPage(page + 1);
+          }}
         />
       </div>
     </>

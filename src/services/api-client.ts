@@ -11,7 +11,7 @@ class APIClient {
     this.endpoint = endpoint;
   }
 
-  getAll = (config: AxiosRequestConfig) => {
+  getAll = (config: AxiosRequestConfig & { page?: number }) => {
     return axiosInstance.get(this.endpoint, config).then(res => res.data);
   };
 }

@@ -1,37 +1,12 @@
 import { Card, Image, CardBody, Stack, Heading, Text } from '@chakra-ui/react';
-import APIClient from '../services/api-client';
-import { useQuery } from 'react-query';
 import { useState } from 'react';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import { IoIosArrowDropleftCircle } from 'react-icons/io';
-
-interface Show {
-  id: number;
-  image: string;
-  name: string;
-  location: {
-    name: string;
-  };
-}
+import useCharacters, { Character } from '../hooks/useCharacters';
 
 const ShowsCard = () => {
   const [page, setPage] = useState(1);
-
-  const apiClient = new APIClient(`/character/?page=${page}`);
-
-  // See current page number
-  // useEffect(() => {
-  //   console.log('Current page:', page);
-  // }, [page]);
-
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ['characters', page],
-    queryFn: apiClient.getAll,
-    cacheTime: 0,
-    onError: error => {
-      console.error('Error fetching data:', error);
-    },
-  });
+  const { data, isLoading, isError } = useCharacters(page);
 
   if (isLoading) return <div>isLoading...</div>;
   if (isError) return <div>Error fetching data</div>;
@@ -42,7 +17,7 @@ const ShowsCard = () => {
         <Heading color='rgb(27,26,26)'>Rick and Morty</Heading>
       </div>
       <div className='container'>
-        {data?.results.map((res: Show) => (
+        {data?.results.map((res: Character) => (
           <Card
             key={res.id}
             // maxW='sm'
